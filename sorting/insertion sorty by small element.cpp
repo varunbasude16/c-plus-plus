@@ -1,22 +1,41 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
+
 int main()
 {
-	int a[6]={4,2,6,3,9,5};
-	int n=6;
-	for(int i=1;i<n;i++){
-		int key=a[i];
-		 int j=i-1;
-		 while(j>=0 && a[j]<key){
-		 	a[j+1]=a[j];		
-			 j=j-1;
-		 }
-		 a[j+1]=key;
-	}
-	for(int i=0; i<6; i++)
-	cout<<a[i]<<" ";
-	
-	return 0;
-	
-}
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
 
+    int arr[n];
+
+    cout << "Enter elements:\n";
+    for(int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    // Insertion Sort using swapping
+    for(int i = 1; i < n; i++)
+    {
+        int j = i;
+
+        while(j > 0 && arr[j] < arr[j - 1])
+        {
+            // swap elements
+            int temp = arr[j];
+            arr[j] = arr[j - 1];
+            arr[j - 1] = temp;
+
+            j--;
+        }
+    }
+
+    cout << "Sorted array:\n";
+    for(int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
