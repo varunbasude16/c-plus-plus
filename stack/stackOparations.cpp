@@ -12,7 +12,7 @@ class Stack{
          }    
 
         void push(int value){
-          if(top>MAX-1){
+          if(top>=MAX-1){
                cout<<"Stack Overflow:"<<endl;
                 return;
              }
@@ -55,7 +55,7 @@ int main() {
     s.push(30);
     cout<<"Stack:";
     s.display();
-	cout<<"size:"<<s.size;
+	cout<<"size:"<<s.size();
 	cout<<"After POP:";
     s.pop();
     s.display();
