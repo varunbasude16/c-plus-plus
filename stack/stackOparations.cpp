@@ -43,6 +43,9 @@ class Stack{
                 return 1;
         return 0;
 		}
+	int size() {
+        return top + 1;
+    }
 };
 
 int main() {
@@ -52,6 +55,7 @@ int main() {
     s.push(30);
     cout<<"Stack:";
     s.display();
+	cout<<"size:"<<s.size;
 	cout<<"After POP:";
     s.pop();
     s.display();
