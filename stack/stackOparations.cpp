@@ -19,8 +19,12 @@ class Stack{
           a[++top]=value;
         }
           int Top(){
-              return a[top];
-              }
+			  if(top < 0) {
+  			      cout << "Stack is empty!" << endl;
+     			  return 0;  
+  				  }
+   			 return a[top];
+          }
     void pop(){
         if(top<0){
             cout<<"stack underflow"<<endl;
