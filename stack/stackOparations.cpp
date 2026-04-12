@@ -31,7 +31,18 @@ class Stack{
     void display(){
         for(int i=top;i>=0;i--)
                 cout<<a[i]<<" ";
+                cout<<endl;
     }
+     bool isEmpty(){
+         if(top<0)
+             return 1;
+         return 0;
+     }
+    bool isFull(){
+        if(top>=MAX-1)
+                return 1;
+        return 0;
+		}
 };
 
 int main() {
@@ -39,11 +50,17 @@ int main() {
     s.push(10);
     s.push(50);
     s.push(30);
+    cout<<"Stack:";
     s.display();
-    cout<<endl;
+	cout<<"After POP:";
     s.pop();
     s.display();
-    cout<<endl<< s.Top()<<endl;
+    cout<<"Top:"<< s.Top()<<endl;
+    s.pop();
+    s.pop();
+    cout<<"After 2 POP"<<endl;
+    cout<<"IsEmpty:"<<s.isEmpty();
+    cout<<"\nIsFull:"<<s.isFull();
     
 
     return 0;
