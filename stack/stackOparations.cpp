@@ -1,8 +1,16 @@
-// Online C++ compiler to run C++ program online
+
 #include <iostream>
 using namespace std;
 #define MAX 100
-class Stack{
+class interface{
+	public:
+		virtual void push(int x)=0;
+		virtual void pop()=0;
+		virtual int Top()=0;
+		virtual	bool isEmpty()=0;
+		virtual bool isFull()=0;
+};
+class Stack:public interface{
     private :
         int a[MAX];
         int top;
@@ -11,45 +19,38 @@ class Stack{
         top=-1;    
          }    
 
-        void push(int value){
-          if(top>=MAX-1){
+        void push(int value) override{
+          if(top>MAX-1){
                cout<<"Stack Overflow:"<<endl;
                 return;
              }
           a[++top]=value;
         }
           int Top(){
-			  if(top < 0) {
-  			      cout << "Stack is empty!" << endl;
-     			  return 0;  
-  				  }
-   			 return a[top];
-          }
-    void pop(){
+              return a[top];
+              }
+    void pop() override{
         if(top<0){
             cout<<"stack underflow"<<endl;
         return;
         }
         top--;
     }
-    void display(){
+    void display() {
         for(int i=top;i>=0;i--)
                 cout<<a[i]<<" ";
                 cout<<endl;
     }
-     bool isEmpty(){
+     bool isEmpty() override{
          if(top<0)
              return 1;
          return 0;
      }
-    bool isFull(){
+    bool isFull() override{
         if(top>=MAX-1)
                 return 1;
         return 0;
 		}
-	int size() {
-        return top + 1;
-    }
 };
 
 int main() {
@@ -59,7 +60,6 @@ int main() {
     s.push(30);
     cout<<"Stack:";
     s.display();
-	cout<<"size:"<<s.size();
 	cout<<"After POP:";
     s.pop();
     s.display();
