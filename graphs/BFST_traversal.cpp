@@ -1,6 +1,6 @@
 #include<iostream>
 #include<queue>
-#include<vector>
+
 #include<list>
 using namespace std;
 
@@ -18,7 +18,7 @@ public:
         l[v].push_back(u);
     }
     void BFS(int s){
-       // vector<bool> vis(V,false);
+       
        int vis[V]={0};
         queue<int> q;
 
